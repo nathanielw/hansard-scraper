@@ -1,6 +1,5 @@
 const program = require('commander');
 const JSONStream = require('JSONStream');
-const debug = require('debug')('hansard-scraper');
 const fs = require('fs');
 
 const fetchResultPages = require('./search-scraper').fetchResultPages;

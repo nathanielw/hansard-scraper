@@ -4,7 +4,7 @@ const debug = require('debug')('hansard-scraper');
 
 const BASE_URL = 'https://www.parliament.nz';
 
-const START_PATH = '/en/ajax/hansardlisting/search/6227?criteria.Keyword=&criteria.Dt[0].Tick=false&criteria.Dt[0].Value=Hansard+-+event&criteria.Dt[1].Tick=true&criteria.Dt[1].Tick=false&criteria.Dt[1].Value=Hansard+-+question&criteria.Dt[2].Tick=false&criteria.Dt[2].Value=Hansard+-+speech&criteria.Dt[3].Tick=false&criteria.Dt[3].Value=Hansard+-+vote&criteria.Timeframe=&criteria.DateFrom=&criteria.DateTo=&criteria.ParliamentNumber=-1&criteria.MemberOfParliament=&criteria.Portfolio=&X-Requested-With=XMLHttpRequest&Criteria.ViewDetails=1&Criteria.ViewAll=1';
+const START_PATH = '/en/ajax/hansardlisting/search/6227?Criteria.Timeframe=range&Criteria.DateFrom=2017-11-01&Criteria.DateTo=2018-03-18&Criteria.ViewAll=1&Criteria.Dt[0].Tick=false&Criteria.Dt[0].Value=Hansard - event&Criteria.Dt[1].Tick=true&Criteria.Dt[1].Value=Hansard - question&Criteria.Dt[2].Tick=false&Criteria.Dt[2].Value=Hansard - speech&Criteria.Dt[3].Tick=false&Criteria.Dt[3].Value=Hansard - vote&Criteria.ViewDetails=1';
 
 const requestOptions = {
 	baseUrl: BASE_URL,
@@ -13,6 +13,7 @@ const requestOptions = {
 	},
 };
 
+// Downloads Question Time transcripts as HTML
 function fetchResultPages(dateFrom, dateTo, destinationStream) {
 	let url = `${START_PATH}&Criteria.DateFrom=${dateFrom}&Criteria.DateTo=${dateTo}`;
 

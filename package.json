@@ -1,5 +1,5 @@
 {
-  "name": "hansard-scraper",
+  "name": "nz-hansard-scraper",
   "version": "0.1.0",
   "description": "Scrapes transcripts from the NZ parliament website",
   "main": "index.js",
@@ -13,6 +13,7 @@
     "cheerio": "^0.22.0",
     "commander": "^2.9.0",
     "debug": "^2.6.8",
+    "json2csv": "^4.0.2",
     "moment": "^2.18.1",
     "request": "^2.81.0",
     "request-promise-native": "^1.0.4"

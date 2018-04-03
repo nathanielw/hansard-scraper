@@ -28,8 +28,8 @@ const IGNOREABLE_CLASSES = [
 	'a',
 ];
 
+// Takes HTML data from the Hansard website, parses it and outputs the parsed data as JSON
 function parseResults(htmlData, destinationStream) {
-	// const interactions = [];
 
 	const $ = cheerio.load(htmlData);
 	const interactionEls = $('.list__row td');
@@ -38,8 +38,6 @@ function parseResults(htmlData, destinationStream) {
 		const interaction = {
 			statements: [],
 		};
-
-		// interactions.push(interaction);
 
 		const body = $('div.body-text .section', el);
 
@@ -109,7 +107,7 @@ function extractName(text) {
 		text = text.substring(0, roleStart).trim();
 	}
 
-	return text;
+	return text.toLowerCase();
 }
 
 module.exports = {
