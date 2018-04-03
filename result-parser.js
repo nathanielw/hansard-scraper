@@ -86,6 +86,7 @@ function parseResults(htmlData, destinationStream) {
 			const name = extractName(nameText);
 			interaction.statements.push({
 				speaker: name,
+				content: statementEl.text().split(':')[1].trim(),
 				type: INTERACTION_TYPES[elementClass],
 			});
 		});
