@@ -7,7 +7,6 @@ const parseResults = require('./result-parser').parseResults;
 
 program
 	.command('fetch')
-	.option('-c --count <number>', 'Number of pages to fetch (each page contains 20 questions)')
 	.option('-t --to <yyyy-mm-dd>', 'Date to end on')
 	.option('-f --from <yyyy-mm-dd>', 'Date to start from')
 	.option('-o, --output <path>', 'File to output to. Outputs to stdout if not specified')
