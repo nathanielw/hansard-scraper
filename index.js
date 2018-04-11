@@ -19,7 +19,7 @@ program
 			outputStream = process.stdout;
 		}
 
-		fetchResultPages(cmd.dateFrom, cmd.dateTo, outputStream).then(() => {
+		fetchResultPages(cmd.from, cmd.to, outputStream).then(() => {
 			if (process.stdout !== outputStream) {
 				outputStream.end();
 			}
