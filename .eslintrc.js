@@ -41,5 +41,9 @@ module.exports = {
 		'ecmaVersion': 6,
 		'sourceType': 'module'
 	},
+	'plugins': [
+		'ava'
+	],
+	'extends': 'plugin:ava/recommended',
 	'extends': 'eslint:recommended'
 };
