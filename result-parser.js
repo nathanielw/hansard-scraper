@@ -52,15 +52,6 @@ function parseResults(htmlData, destinationStream) {
 
 		interaction.date = dateMatch[0];
 
-		// Extract initial question asker
-		let askerNameText = $('p.SubsQuestion > strong', body).text(); // The name sometimes gets separated across multiple <strong> tags
-		askerNameText = askerNameText.substring(askerNameText.indexOf('.') + 1).trim();
-		interaction.asker = extractName(askerNameText);
-
-		// Extract initial question answerer
-		const answererNameText = $('p.SubsAnswer > strong', body).text();
-		interaction.answerer = extractName(answererNameText);
-
 		const statementEls = $('.section > p', body);
 		statementEls.each((i, statementEl) => {
 			statementEl = $(statementEl);
@@ -84,9 +75,16 @@ function parseResults(htmlData, destinationStream) {
 
 			const nameText = $('strong', statementEl).text().trim();
 			const name = extractName(nameText);
+
+			if (interaction.asker == null && elementClass === 'SubsQuestion') {
+				interaction.asker = name;
+			} else if (interaction.answerer == null && elementClass === 'SubsAnswer') {
+				interaction.answerer = name;
+			}
+
 			interaction.statements.push({
 				speaker: name,
-				content: statementEl.text().split(':')[1].trim(),
+				content: statementEl.text().split(':')[1].trim(), // TODO: this is not robust - not all statements have a colon
 				type: INTERACTION_TYPES[elementClass],
 			});
 		});
