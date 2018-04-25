@@ -10,7 +10,7 @@ const INTERACTION_TYPES = {
 	'SupQuestion': 'question-sup',
 	'SupAnswer': 'answer-sup',
 	'Interjection': 'interjection',
-	'ContinueSpeech': 'speech-coninue',
+	'ContinueSpeech': 'speech-continue',
 	'ContinueAnswer': 'answer-continue',
 	'Speech': 'speech',
 	'Intervention': 'intervention',
