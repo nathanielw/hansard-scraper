@@ -109,6 +109,11 @@ function extractName(text) {
 	return text.toLowerCase();
 }
 
+function extractContent(fullContent) {
+
+}
+
 module.exports = {
 	parseResults,
+	extractContent,
 };
